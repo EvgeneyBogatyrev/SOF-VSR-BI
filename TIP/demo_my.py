@@ -64,7 +64,7 @@ def chop_forward(x, model, scale, shave=16, min_size=5000, nGPUs=1):
 def main(cfg):
     # model
     net = SOFVSR(cfg, is_training=False)
-    ckpt = torch.load('TIP/log/' + cfg.degradation + '_x' + str(cfg.scale) + '.pth')
+    ckpt = torch.load('/model/TIP/log/' + cfg.degradation + '_x' + str(cfg.scale) + '.pth')
     net.load_state_dict(ckpt)
     if cfg.gpu_mode:
         net.cuda()
@@ -122,12 +122,12 @@ def main(cfg):
 
 if __name__ == '__main__':
     cfg = parse_args()
-    with open(os.path.join(cfg.save_result_dir, 'SOF-VSR-' + cfg.degradation + '.txt'), 'a') as f:
-        f.write('OK ' + cfg.video_name)
-    begin = time.time()
+    #with open(os.path.join(cfg.save_result_dir, 'SOF-VSR-' + cfg.degradation + '.txt'), 'a') as f:
+    #    f.write('OK ' + cfg.video_name)
+    #begin = time.time()
 
     main(cfg)
 
-    end = time.time()
-    with open(os.path.join(cfg.save_result_dir, 'SOF-VSR-' + cfg.degradation + '.txt'), 'a') as f:
-        f.write('Full time on {}: {}'.format(cfg.video_name, end - begin))
+    #end = time.time()
+    #with open(os.path.join(cfg.save_result_dir, 'SOF-VSR-' + cfg.degradation + '.txt'), 'a') as f:
+    #    f.write('Full time on {}: {}'.format(cfg.video_name, end - begin))
