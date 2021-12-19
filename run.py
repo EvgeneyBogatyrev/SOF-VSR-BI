@@ -6,7 +6,7 @@ with open("run.sh", 'w') as f:
     f.write("mkdir /model/results\n")
 
     for vid in vids:
-        f.write("python3 /model/TIP/demo_my.py --testset_dir /dataset --video_name {vid} --save_result_dir /model/results --degradation BI\n")
+        f.write(f"python3 /model/TIP/demo_my.py --testset_dir /dataset --video_name {vid} --save_result_dir /model/results --degradation BI\n")
 
     f.write("chmod -R 0777 /model\n")
 
