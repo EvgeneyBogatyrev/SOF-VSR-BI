@@ -1,7 +1,5 @@
 import os
 
-if os.path.isfile("run.sh"):
-    os.system("chmod 0777 run.sh")
 
 with open("/model/run.sh", 'w') as f:
     _, vids, _ = next(os.walk("/dataset"))
