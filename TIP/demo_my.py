@@ -8,6 +8,7 @@ import os
 import argparse
 import torch
 import time
+from pathlib import Path
 
 
 def parse_args():
@@ -111,13 +112,11 @@ def main(cfg):
             SR_rgb = np.clip(SR_rgb, 0, 255)
             SR_rgb = ToPILImage()(np.round(SR_rgb).astype(np.uint8))
 
-            if not os.path.exists(cfg.save_result_dir):
-                os.mkdir(cfg.save_result_dir)
-            if not os.path.exists(cfg.save_result_dir + cfg.degradation + '_x' + str(cfg.scale)):
-                os.mkdir(cfg.save_result_dir + cfg.degradation + '_x' + str(cfg.scale))
-            if not os.path.exists(cfg.save_result_dir + cfg.degradation + '_x' + str(cfg.scale) + '/' + cfg.video_name):
-                os.mkdir(cfg.save_result_dir + cfg.degradation + '_x' + str(cfg.scale) + '/' + cfg.video_name)
-            SR_rgb.save(cfg.save_result_dir + cfg.degradation + '_x' + str(cfg.scale) + '/' + cfg.video_name + '/frame_' + str(idx_iter+2).rjust(3,'0') + '.png')
+            #if not os.path.exists(cfg.save_result_dir + cfg.degradation + '_x' + str(cfg.scale)):
+            #    os.mkdir(cfg.save_result_dir + cfg.degradation + '_x' + str(cfg.scale))
+            #if not os.path.exists(cfg.save_result_dir + cfg.degradation + '_x' + str(cfg.scale) + '/' + cfg.video_name):
+            Path(cfg.save_result_dir + '/' + cfg.video_name).mkdir(parents=True, exist_OK=True)
+            SR_rgb.save(cfg.save_result_dir + '/' + cfg.video_name + '/frame_' + str(idx_iter+2).rjust(3,'0') + '.png')
 
 
 if __name__ == '__main__':
