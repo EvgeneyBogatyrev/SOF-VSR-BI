@@ -115,7 +115,7 @@ def main(cfg):
             #if not os.path.exists(cfg.save_result_dir + cfg.degradation + '_x' + str(cfg.scale)):
             #    os.mkdir(cfg.save_result_dir + cfg.degradation + '_x' + str(cfg.scale))
             #if not os.path.exists(cfg.save_result_dir + cfg.degradation + '_x' + str(cfg.scale) + '/' + cfg.video_name):
-            Path(cfg.save_result_dir + '/' + cfg.video_name).mkdir(parents=True, exist_OK=True)
+            Path(cfg.save_result_dir + '/' + cfg.video_name).mkdir(parents=True, exist_ok=True)
             SR_rgb.save(cfg.save_result_dir + '/' + cfg.video_name + '/frame_' + str(idx_iter+2).rjust(3,'0') + '.png')
 
 
