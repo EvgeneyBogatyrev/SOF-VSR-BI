@@ -1,5 +1,7 @@
+import os
+
 with open("run.sh", 'w') as f:
-    _, vids, _ = os.walk("/dataset")
+    _, vids, _ = next(os.walk("/dataset"))
 
     f.write("mkdir results")
 
