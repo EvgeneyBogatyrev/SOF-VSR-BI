@@ -79,9 +79,9 @@ class TestsetLoader(Dataset):
     def __getitem__(self, idx):
         #dir = self.dataset_dir + '/lr_x' + str(self.scale) + '_' + self.degradation
         dir = self.dataset_dir
-        LR0 = Image.open(dir + '/' + 'frame_' + str(idx+1).rjust(3, '0') + '.png')
-        LR1 = Image.open(dir + '/' + 'frame_' + str(idx+2).rjust(3, '0') + '.png')
-        LR2 = Image.open(dir + '/' + 'frame_' + str(idx+3).rjust(3, '0') + '.png')
+        LR0 = Image.open(dir + '/' + 'frame' + str(idx+1).rjust(4, '0') + '.png')
+        LR1 = Image.open(dir + '/' + 'frame' + str(idx+2).rjust(4, '0') + '.png')
+        LR2 = Image.open(dir + '/' + 'frame' + str(idx+3).rjust(4, '0') + '.png')
         W, H = LR1.size
 
         # H and W should be divisible by 2
